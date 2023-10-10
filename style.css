@@ -80,3 +80,31 @@ body{
     font-size: 25px;
     height: 65px;
 }
+
+/* .calc-tasti:last-child{
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255,255,255, 0.75);
+    border: 1px solid rgb(255, 255, 255, 0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgb(35,35,35, 0.1);
+    color: black;
+    background: #e0aaff;
+} */
+
+/* .calc-tasti:last-child:hover{
+    background-color: inherit;
+    color: inherit;
+} */
+
+/* .calc-tasti:last-child:active{
+    background-color: #e0aaff;
+} */
+
+.double{
+    flex-basis: 47%;
+}
+
+.triple{
+    flex-basis: 45%;
+}
