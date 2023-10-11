@@ -110,16 +110,18 @@ body{
 }
 
 
+
+/* RESPONSIVE */
 @media (min-width: 360px) {
-    /* Media query per schermi più piccoli o dispositivi mobili */
     html{
         box-sizing: border-box;
         min-height: 50%;
     }
     .title{
-        top: 30px;
+        top: 10px;
         font-size: 10px;
     }
+
     .wrapper{
         backdrop-filter: blur(5.5px);
         -webkit-backdrop-filter: blur(5.5);
@@ -137,5 +139,3 @@ body{
         padding: 20px 35px;
     }
 }
-
-    /* Aggiungi altri stili per dispositivi mobili se necessario */
