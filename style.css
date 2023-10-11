@@ -58,6 +58,7 @@ body{
     padding: 20px;
     text-align: right;
     width: 326px;
+    height: 95px;
 }
 
 /* SEZIONE TASTI */
@@ -81,25 +82,24 @@ body{
     height: 65px;
 }
 
-/* .calc-tasti:last-child{
+.calc-tasto:last-child{
     backdrop-filter: blur(5.5px);
     -webkit-backdrop-filter: blur(5.5px);
     background: rgba(255,255,255, 0.75);
     border: 1px solid rgb(255, 255, 255, 0.01);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgb(35,35,35, 0.1);
-    color: black;
-    background: #e0aaff;
-} */
+    color: #9d4edd;
+} 
 
-/* .calc-tasti:last-child:hover{
+.calc-tasto:last-child:hover{
     background-color: inherit;
     color: inherit;
-} */
+}
 
-/* .calc-tasti:last-child:active{
+.calc-tasto:last-child:active{
     background-color: #e0aaff;
-} */
+}
 
 .double{
     flex-basis: 47%;
@@ -108,3 +108,34 @@ body{
 .triple{
     flex-basis: 45%;
 }
+
+
+@media (min-width: 360px) {
+    /* Media query per schermi più piccoli o dispositivi mobili */
+    html{
+        box-sizing: border-box;
+        min-height: 50%;
+    }
+    .title{
+        top: 30px;
+        font-size: 10px;
+    }
+    .wrapper{
+        backdrop-filter: blur(5.5px);
+        -webkit-backdrop-filter: blur(5.5);
+        background: rgb(255, 255, 255, 0.75);
+        border: 1px solid rgb(255, 255, 255, 0.01);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+        color: black;
+        backdrop-filter: blur (4px);
+        -webkit-backdrop-filter: blur (4px);
+        background:rgb(255, 255, 255, 0.30);
+        border: 1px solid rgb(255, 255, 255, 0.30);
+        flex-basis: 400px;
+        max-height: 540px;
+        padding: 20px 35px;
+    }
+}
+
+    /* Aggiungi altri stili per dispositivi mobili se necessario */

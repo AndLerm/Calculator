@@ -1,89 +1,87 @@
-let runningTotal = 0;
-let buffer = "0";
-let previousOperator;
-
 const screen = document.querySelector('.screen');
+let currentInput = '0';
+let currentOperator = null;
+let prevValue = null;
 
-function buttonClick(value) {
-    if(isNaN(value)){
-        handleSymbol(value);
-    } else{
-        handleNumber(value);
+document.querySelector('.calc-tasti').addEventListener('click', function (event) {
+    const buttonValue = event.target.innerText;
+
+    if (!isNaN(buttonValue) || buttonValue === '.') {
+        handleNumberInput(buttonValue);
+    } else if (buttonValue === '+' || buttonValue === '-' || buttonValue === '×' || buttonValue === '÷') {
+        handleOperatorInput(buttonValue);
+    } else if (buttonValue === '=') {
+        handleEqualsInput();
+    } else if (buttonValue === 'C') {
+        handleClearInput();
+    } else if (buttonValue === '←') {
+        handleBackspaceInput();
     }
-    screen.innerText = buffer;
+
+    updateScreen();
+});
+
+function handleNumberInput(value) {
+    if (currentInput === '0' || currentInput === 'Error') {
+        currentInput = value;
+    } else {
+        currentInput += value;
+    }
 }
 
-function handleSymbol (symbol){
-    switch(symbol){
-        case 'C':
-            buffer = '0';
-            runningTotal = 0;
-            break;
-        case '=':
-            if(previousOperator === null){
-                return
-            }
-            flushOperation(parseInt(buffer));
-            previousOperator = null;
-            buffer = runningTotal;
-            break;
-        case '←':
-            if(buffer.length ===1){
-                buffer = '0';
-            }else{
-                buffer = buffer.substring(0, buffer.length - 1);
-            }
-            break;
+function handleOperatorInput(operator) {
+    if (currentOperator !== null) {
+        handleEqualsInput();
+    }
+    prevValue = parseFloat(currentInput);
+    currentOperator = operator;
+    currentInput = '0';
+}
+
+function handleEqualsInput() {
+    if (currentOperator === null) {
+        return;
+    }
+
+    const currentValue = parseFloat(currentInput);
+    switch (currentOperator) {
         case '+':
-        case '-':
-        case '×':
-        case '÷':
-            hanldeMath(symbol);
+            prevValue += currentValue;
             break;
-        }
+        case '-':
+            prevValue -= currentValue;
+            break;
+        case '×':
+            prevValue *= currentValue;
+            break;
+        case '÷':
+            if (currentValue !== 0) {
+                prevValue /= currentValue;
+            } else {
+                currentInput = 'Error';
+                currentOperator = null;
+                prevValue = null;
+                return;
+            }
+            break;
     }
 
-function hanldeMath(symbol){
-    if(buffer === '0'){
-      return;
-    }
+    currentOperator = null;
+    currentInput = prevValue.toString();
+}
 
-        const intBuffer = presenInt(buffer);
-        if(runningTotal === 0){
-            runningTotal = intBuffer;
-        }else{
-            flushOperation(intBuffer);
-        }
-        previousOperator = symbol;
-        buffer = '0';
-        }
-    
-    
+function handleClearInput() {
+    currentInput = '0';
+    currentOperator = null;
+    prevValue = null;
+}
 
-function flushOperation(intBuffer){
-    if(previousOperator === '+'){
-        runningTotal += intBuffer;
-    } else if(previousOperator === '-'){
-        runningTotal -= intBuffer;
-    } else if(previousOperator === '×'){
-        runningTotal *= intBuffer;
-    } else if(previousOperator === '÷'){
-        runningTotal /= intBuffer;
+function handleBackspaceInput() {
+    if (currentInput.length > 0) {
+        currentInput = currentInput.slice(0, -1);
     }
 }
 
-function handleNumber(numberString){
-    if(buffer === "0"){
-        buffer = numberString;
-    } else{
-        buffer += numberString;
-    }
+function updateScreen() {
+    screen.textContent = currentInput;
 }
-
-function init(){
-    document.querySelector('.calc-tasti').addEventListener('click', function (event){
-        buttonClick(event.target.innerText);
-    })
-}
-
-init();
