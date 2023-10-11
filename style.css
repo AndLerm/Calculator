@@ -6,7 +6,7 @@ html{
 .title{
     color: #9d4edd;
     position: absolute;
-    top: 60px;
+    margin-top: 50px;
     font-size: 30px;
     font-family: 'Young Serif', serif;
 }
@@ -112,14 +112,16 @@ body{
 
 /* RESPONSIVE */
 
-@media (min-width: 350px) {
+@media (min-width: 320px) {
     html{
         box-sizing: border-box;
-        min-height: 50%;
-        min-width: 50%;
+        max-height: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
     .title{
-        top: 20px;
+        position: absolute;
+        margin-bottom: 600px;
         font-size: 20px;
     }
     .wrapper{
