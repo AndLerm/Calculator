@@ -1,13 +1,20 @@
 html{
     box-sizing: border-box;
+    padding-top: 100px;
     height: 100%;
 }
 
 .title{
     color: #9d4edd;
     position: absolute;
-    margin-top: 50px;
-    font-size: 30px;
+    font-size: 20px;
+    font-family: 'Young Serif', serif;
+}
+.mainIcon{
+    color: #9d4edd;
+    position: absolute;
+    /* top: 60px; */
+    font-size: 70px;
     font-family: 'Young Serif', serif;
 }
 
@@ -119,13 +126,27 @@ body{
         max-width: 100%;
         overflow: hidden;
     }
+    body{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        max-height: 100%;
+        max-width: 100%;
+    }
     .title{
         position: absolute;
-        margin-bottom: 600px;
-        font-size: 20px;
+        top: 100px;
+        font-size: 30px;
+    }
+    .mainIcon{
+        position: absolute;
+        top: 20px;
+        font-size: 60px;
     }
     .wrapper{
         position: relative;
         top: 40px;
     }
 }
+
+
