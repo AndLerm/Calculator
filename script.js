@@ -30,12 +30,13 @@ function handleNumberInput(value) {
 }
 
 function handleOperatorInput(operator) {
-    if (currentOperator !== null) {
-        handleEqualsInput();
+    console.log(prevValue);
+
+    if (currentOperator === null) {
+        prevValue = parseFloat(currentInput);
+        currentOperator = operator;
+        currentInput = '0';
     }
-    prevValue = parseFloat(currentInput);
-    currentOperator = operator;
-    currentInput = '0';
 }
 
 function handleEqualsInput() {

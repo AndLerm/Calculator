@@ -110,32 +110,20 @@ body{
 }
 
 
-
 /* RESPONSIVE */
-@media (min-width: 360px) {
+
+@media (min-width: 350px) {
     html{
         box-sizing: border-box;
         min-height: 50%;
+        min-width: 50%;
     }
     .title{
-        top: 10px;
-        font-size: 10px;
+        top: 20px;
+        font-size: 20px;
     }
-
     .wrapper{
-        backdrop-filter: blur(5.5px);
-        -webkit-backdrop-filter: blur(5.5);
-        background: rgb(255, 255, 255, 0.75);
-        border: 1px solid rgb(255, 255, 255, 0.01);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
-        color: black;
-        backdrop-filter: blur (4px);
-        -webkit-backdrop-filter: blur (4px);
-        background:rgb(255, 255, 255, 0.30);
-        border: 1px solid rgb(255, 255, 255, 0.30);
-        flex-basis: 400px;
-        max-height: 540px;
-        padding: 20px 35px;
+        position: relative;
+        top: 40px;
     }
 }
